@@ -17,12 +17,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 
-// Handle 404
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
 });
 
-// Error handling middleware
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;

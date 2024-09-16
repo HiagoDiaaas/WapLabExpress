@@ -17,11 +17,9 @@ app.use(express_1.default.static(path_1.default.join(rootDir, 'views')));
 app.use('/', index_1.default);
 app.use('/users', users_1.default);
 app.use('/products', products_1.default);
-// Handle 404
 app.use((req, res, next) => {
     res.status(404).sendFile(path_1.default.join(rootDir, 'views', '404.html'));
 });
-// Error handling middleware
 app.use(errorHandler_1.default);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
